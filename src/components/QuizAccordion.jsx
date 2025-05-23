@@ -6,9 +6,7 @@ import QuestionItem from "./QuestionItem";
 const QuizAccordion = ({ category }) => {
   const { state } = useContext(QuizContext);
 
-  const filtered = category === "All"
-    ? state
-    : state.filter(question => question.category === category);
+  const filtered = category === "All" ? state : state.filter(question => question.category === category);
 
   return (
     <Accordion alwaysOpen>

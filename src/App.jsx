@@ -10,11 +10,13 @@ const App = () => {
 };
 
   return (
-    <QuizProvider>
-        <h1 className="mt-4 mb-4">Quiz Interactif</h1>
-        <FilterQuiz handleChange={handleChange} />
-        <QuizAccordion category={category} />
-    </QuizProvider>
+    <div className="m-1">
+      <QuizProvider>
+          <h1 className="mt-4 mb-4">Quiz Interactif</h1>
+          <FilterQuiz handleChange={handleChange} />
+          <QuizAccordion category={category} />
+      </QuizProvider>
+    </div>
   );
 };
 

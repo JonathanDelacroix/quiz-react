@@ -5,13 +5,7 @@ import { questionsData } from "../data/questions";
 export const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
-  const initialState = questionsData.map(q => ({
-    ...q,
-    validated: false,
-    userAnswer: null,
-  }));
-
-  const [state, dispatch] = useReducer(quizReducer, initialState);
+  const [state, dispatch] = useReducer(quizReducer, questionsData);
 
   return (
     <QuizContext.Provider value={{ state, dispatch }}>
