@@ -14,21 +14,21 @@ const QuestionItem = ({ question, eventKey }) => {
   return (
     <Accordion.Item eventKey={eventKey}>
       <Accordion.Header>
-        <span>{question.question}</span>
-        {question.validation && (
-          <div className="d-flex justify-content-end w-100">
-            <span className={`${isCorrect ? "text-success" : "text-danger"}`}>
-              {isCorrect ? "Juste" : "Faux"}
+        <div className="d-flex justify-content-between align-items-center w-100">
+          <span>{question.question}</span>
+          {question.validation !== null && (
+            <span className={`${question.validation ? "text-success" : "text-danger"}`}>
+              {question.validation ? "Juste" : "Faux"}
             </span>
-          </div>
-        )}
+          )}
+        </div>
       </Accordion.Header>
       <Accordion.Body>
         <div className="p-3 border rounded bg-white shadow-sm">
           <p><strong>Réponse :</strong> {question.answer}</p>
           <div className="d-flex gap-2 mt-2">
-            <Button variant="success" onClick={() => handleAnswer("Juste")} className={question.validation ? "disabled" : ""}>Juste</Button>
-            <Button variant="danger" onClick={() => handleAnswer("Faux")} className={question.validation ? "disabled" : ""}>Faux</Button>
+            <Button variant="success" onClick={() => handleAnswer("Juste")} disabled={question.validation !== null}>Juste</Button>
+            <Button variant="danger" onClick={() => handleAnswer("Faux")} disabled={question.validation !== null}>Faux</Button>
           </div>
         </div>
       </Accordion.Body>
